@@ -19,8 +19,10 @@
 Обучение без учителя включает в себя обучение модели на неразмеченных данных. Модель должна самостоятельно выявить структуру или паттерны в данных.
 
 Примеры задач обучения без учителя:
+
 Кластеризация: Группировка объектов в кластеры на основе их сходства.
 Пример: Сегментация клиентов по схожести их покупательских привычек.
+
 Поиск ассоциаций: Выявление правил ассоциаций между объектами в данных.
 Пример: Анализ рыночной корзины (какие продукты часто покупаются вместе).
 Основные этапы обучения без учителя:
@@ -39,43 +41,40 @@
 Практическая часть:
 Найдите датасет, который можно использовать для обучения с учителем и без учителя. (Например, датасет "Wine" из библиотеки Scikit-Learn. Этот датасет содержит информацию о химическом составе различных вин и их классах (три разных сорта вина)).
 Реализуйте алгоритм обучения с учителем и без учителя. Интерпретируйте результаты.
-# Импортируем необходимые библиотеки
+Импортируем необходимые библиотеки
 import numpy as np
 from sklearn.datasets import load_wine
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
-Ссылку на ваш блокнот разместите в домашнем задании.
-
-Удачи в выполнении задания! Если возникнут вопросы, не стесняйтесь обращаться за помощью.
 
 Обучение с учителем: Классификация с использованием логистической регрессии
 Используем датасет "Iris" для классификации видов ирисов.
 
-# Импортируем необходимые библиотеки
+Импортируем необходимые библиотеки
 import numpy as np
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
 
-# Загружаем датасет Iris
+Загружаем датасет Iris
 iris = load_iris()
 X = iris.data
 y = iris.target
 
 
-# Разделяем данные на обучающую и тестовую части
+Разделяем данные на обучающую и тестовую части
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-# Обучаем модель логистической регрессии
+Обучаем модель логистической регрессии
 model = LogisticRegression(max_iter=1000)
 model.fit(X_train, y_train)
 
-# Предсказываем результаты на тестовых данных
+Предсказываем результаты на тестовых данных
 y_pred = model.predict(X_test)
 
-# Оцениваем качество модели
+Оцениваем качество модели
 accuracy = accuracy_score(y_test, y_pred)
 print("Accuracy:", accuracy)
 print("Classification Report:")
@@ -105,18 +104,18 @@ weighted avg: Взвешенное среднее значение precision, re
 Обучение без учителя: Кластеризация с использованием алгоритма K-means
 Используем тот же датасет "Iris" для кластеризации.
 
-# Импортируем необходимые библиотеки
+Импортируем необходимые библиотеки
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 
-# Обучаем модель K-means
+Обучаем модель K-means
 kmeans = KMeans(n_clusters=3, random_state=42)
 kmeans.fit(X)
 
-# Предсказываем кластеры
+Предсказываем кластеры
 clusters = kmeans.predict(X)
 
-# Визуализируем результаты кластеризации
+Визуализируем результаты кластеризации
 plt.scatter(X[:, 0], X[:, 1], c=clusters, cmap='viridis', marker='o')
 plt.title('K-means Clustering of Iris Dataset')
 plt.xlabel('Sepal Length')
